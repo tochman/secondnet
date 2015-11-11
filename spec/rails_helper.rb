@@ -6,7 +6,14 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
+<<<<<<< HEAD
 require 'coveralls'
+=======
+require 'factory_girl_rails'
+require 'coveralls'
+require 'shoulda-matchers'
+
+>>>>>>> e472d7c033f124aec7769294dfdea985461da04b
 Coveralls.wear!
 
 ActiveRecord::Migration.maintain_test_schema!
