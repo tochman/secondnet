@@ -1,1 +1,7 @@
-<h2>There are no products in the system yet.</h2>
+<% if @products.any? %>
+  <% @products.each do |product| %>
+    <h2> <%= product.title %> </h2>
+  <% end %>
+<% else %>
+  <h2>There are no products in the system yet.</h2>
+<% end %>

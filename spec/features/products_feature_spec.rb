@@ -17,8 +17,8 @@ describe 'products' do
   context 'new post have been added' do
 
     before do
-      visit '/products'
       Product.create(title: 'New item')
+      visit '/products'
     end
 
     scenario 'should list added products' do
