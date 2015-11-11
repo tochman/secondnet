@@ -1,6 +1,12 @@
-rvm: '2.2.3'
-script: bundle exec rspec spec
+rvm: 2.2.3
 script:
-  - bundle exec bin/rake db:create
-  - bundle exec bin/rake db:migrate
-  - bundle exec rspec spec
+- bundle exec bin/rake db:create
+- bundle exec bin/rake db:migrate
+- bundle exec rspec spec
+
+deploy:
+provider: heroku
+  api_key:
+    secure: QYXB95fjZ5jWVl3QDJ31jQygdsg5vAOfWgOhAgJQfzfIPqTIOyf2l9MI0pEW6i22x5V95LbNOf4Ci2aQQC/Abm3JpZ2REtFEwNniUL0NQqSJSuZ7sLZaGyIrWoaaGoF76Fk8uCiidHQmQYAWdStdioeeXO17R58rlv+m+Q93EKdY1WLfN8Wos62oMpl1Gm8XYM21RWUS5VfjKz+365ju8yCF3mK5wrzwp73HxsV/OBzMjkikJDfaP0OYciICg9JFjdIj5AKBBWxxPLR5WgDciq1aN3lwStoWfPWaROT6j17XcpIYdseerVkOMkKyqER7rUoECPCWMJTsb5UuTGAyNqziwAEYjbAOPtV4AXnKQeH7ToDsmZWCy0AdaeGuG+Zalx2Ez944F/IMQ/QGxIV+uW8/kD+uT/y7S8Phk3dUrtZA1jdRfXXFfVWHEg43CndBnyatgZ7MMCsZTfBdUSCKkDrPFfY30MwA09GfDspR6pMREhut+cPXuN630g9evScxx+JnYGWr248HHAXQBykkln7IKHpzg4zOucmg9B8W5cwsDsFjDYe2WMTr/OdCou+qysKRbHqyqdxkR86eACfALrRf0gQaJkAyakihH7bI2ch07Kieh/xH/wklU7fkWPOcFruYmNXWC2H2hFluyZgXtEKgDxajlfAP6g6I4iJBJX0=
+ app:
+    develop: secondnet-develop
