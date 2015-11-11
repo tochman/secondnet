@@ -13,4 +13,17 @@ describe 'products' do
       expect(page).to have_content 'There are no products in the system yet.'
     end
   end
+
+  context 'new post have been added' do
+
+    before do
+      visit '/products'
+      Product.create(title: 'New item')
+    end
+
+    scenario 'should list added products' do
+      expect(page).to have_content 'New item'
+      expect(page).not_to have_content 'There are no products in the system yet.'
+    end
+  end
 end
