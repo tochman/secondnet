@@ -17,7 +17,7 @@ describe 'products' do
   context 'new product have been added' do
 
     before do
-      Product.create(title: 'New item')
+      FactoryGirl.create(:product)
       visit '/products'
     end
 
@@ -37,5 +37,20 @@ describe 'products' do
       expect(current_path).to eq '/products'
     end
   end
+
+  context 'editing products' do
+
+    before do
+      FactoryGirl.create(:product)
+      visit '/stores/my_products'
+    end
+
+    scenario 'store owner clicks on edit link and is promted a product update form' do
+      click_link 'Edit'
+      expect(page).to have_content 'Edit product information'
+    end
+
+  end
+
 
 end
