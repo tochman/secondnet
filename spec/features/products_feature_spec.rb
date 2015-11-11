@@ -26,4 +26,16 @@ describe 'products' do
       expect(page).not_to have_content 'There are no products in the system yet.'
     end
   end
+
+  context 'creating products' do
+    scenario 'prompts user to fill out a form, then displays the new product' do
+      visit '/stores'
+      click_link 'Add new product'
+      fill_in 'What are you selling?', with: 'New item'
+      click_button 'Add Product'
+      expect(page).to have_content 'New item'
+      expect(current_path).to eq '/products'
+    end
+  end
+
 end
