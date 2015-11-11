@@ -19,17 +19,14 @@ end
 
 group :development, :test do
   gem 'byebug'
-end
-
-group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
-
-group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails', "~> 4.0"
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.0'
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
 end
