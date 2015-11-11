@@ -1,5 +1,8 @@
 == README
 
+https://travis-ci.org/gustafr/secondnet.svg?branch=develop
+{<img src="https://coveralls.io/repos/gustafr/secondnet/badge.svg?branch=master&service=github" alt="Coverage Status" />}[https://coveralls.io/github/gustafr/secondnet?branch=master]
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
