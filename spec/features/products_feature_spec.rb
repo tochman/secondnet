@@ -14,7 +14,7 @@ describe 'products' do
     end
   end
 
-  context 'new post have been added' do
+  context 'new product have been added' do
 
     before do
       Product.create(title: 'New item')
