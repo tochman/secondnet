@@ -29,8 +29,12 @@ describe 'products' do
 
   context 'creating products' do
 
-    scenario 'prompts user to fill out a form, then displays the new product' do
+    before do
       visit '/stores'
+    end
+
+    scenario 'prompts user to fill out a form, then displays the new product' do
+
       click_link 'Add new product'
       fill_in 'What are you selling?', with: 'New item'
       fill_in 'Describe the product', with: 'Something really nice'
@@ -39,6 +43,18 @@ describe 'products' do
       expect(page).to have_content 'New item'
       expect(current_path).to eq '/products'
     end
+
+    scenario 'store owner can\'t add product if productinfo is missing' do
+      click_link 'Add new product'
+      fill_in 'What are you selling?', with: ''
+      fill_in 'Describe the product', with: ''
+      fill_in 'Your selling price in SEK', with: ''
+      click_button 'Add Product'
+      expect(page).to have_content 'Title can\'t be blank'
+      expect(page).to have_content 'Description can\'t be blank'
+      expect(page).to have_content 'Price is not a number'
+    end
+
   end
 
   context 'editing products' do
@@ -60,6 +76,19 @@ describe 'products' do
       expect(page).to have_content 'Product was updated successfully!'
       expect(page).to have_content 'Updated information'
     end
+
+    scenario 'store owner can\'t edit product if productinfo is erased' do
+      click_link 'Edit'
+      fill_in 'What are you selling?', with: ''
+      fill_in 'Describe the product', with: ''
+      fill_in 'Your selling price in SEK', with: ''
+      click_button 'Update Product'
+      expect(page).to have_content 'Title can\'t be blank'
+      expect(page).to have_content 'Description can\'t be blank'
+      expect(page).to have_content 'Price is not a number'
+    end
+
+
   end
 
   context 'deleting products' do
