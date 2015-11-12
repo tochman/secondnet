@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
 root to: "products#index"
 
 get 'stores/my_products', controller: :products, action: :get_my_products, as: :my_products

@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <% if flash %>
-    <% flash.each do |name, msg| %>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if flash %>
+  <% flash.each do |name, msg| %>
     <div id="flash-container" data-alert class="alert-box <%= name.to_s == 'notice' ? 'success' : 'alert' %>">
       <%= msg %>
       <a href="#" class="close">&times;</a>
     </div>
-    <% end %>
-    <% end %>
-    <%= yield %>
-    <script>
-    $(document).ready(function () {
+  <% end %>
+<% end %>
+<%= yield %>
+<script>
+  $(document).ready(function () {
     var flash = $('#flash-container');
     if (flash.length > 0) {
-    window.setTimeout(function () {
-    flash.fadeTo(1000, 0).slideUp(1000, function () {
-    $(this).remove();
-    });
-    }, 2000);
+      window.setTimeout(function () {
+        flash.fadeTo(1000, 0).slideUp(1000, function () {
+          $(this).remove();
+        });
+      }, 2000);
     }
-    });
-    </script>
-    <script>
-    $(document).foundation();
-    </script>
-  </body>
+  });
+</script>
+<script>
+  $(document).foundation();
+</script>
+</body>
 </html>
