@@ -11,6 +11,14 @@ class ProductsController < ApplicationController
   def create
     @product = Product.create(product_params)
     if @product.save == true
+
+      if params[:images]
+        #===== The magic is here ;)
+        params[:images].each { |image|
+          @product.pictures.create(image: image)
+        }
+      end
+
       redirect_to products_path
     else
       render 'new'
@@ -34,9 +42,9 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-      @product.destroy
-      flash[:notice] = 'Product was deleted successfully!'
-      redirect_to products_path
+    @product.destroy
+    flash[:notice] = 'Product was deleted successfully!'
+    redirect_to products_path
   end
 
   def get_my_products
@@ -45,7 +53,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title, :description, :price)
+    params.require(:product).permit(:title, :description, :price, :images)
   end
 
 end
