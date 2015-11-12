@@ -15,3 +15,4 @@
 /coverage
 .env
 .byebug_history
+/public/system/products/*
