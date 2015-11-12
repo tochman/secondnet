@@ -28,6 +28,7 @@ describe 'products' do
   end
 
   context 'creating products' do
+
     scenario 'prompts user to fill out a form, then displays the new product' do
       visit '/stores'
       click_link 'Add new product'
@@ -50,6 +51,27 @@ describe 'products' do
       expect(page).to have_content 'Edit product information'
     end
 
+    scenario 'store owner edits the product information' do
+      click_link 'Edit'
+      fill_in 'What are you selling?', with: 'Updated information'
+      click_button 'Update Product'
+      expect(page).to have_content 'Product was updated successfully!'
+      expect(page).to have_content 'Updated information'
+    end
+  end
+
+  context 'deleting products' do
+
+    before do
+      FactoryGirl.create(:product)
+      visit '/stores/my_products'
+    end
+
+    scenario 'store owner clicks on delete link and product is removed' do
+      click_link 'Delete'
+      expect(page).to have_content 'Product was deleted successfully!'
+      expect(page).to have_content 'There are no products in the system yet.'
+    end
   end
 
 
