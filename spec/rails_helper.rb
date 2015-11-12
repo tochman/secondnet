@@ -37,7 +37,11 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-    Shoulda::Matchers.configure do |config|
+  config.after(:suite) do
+    FileUtils.rm_rf(Dir["./public/system/products/images"])
+  end
+
+  Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       with.test_framework :rspec
       with.library :rails
