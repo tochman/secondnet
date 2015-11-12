@@ -6,5 +6,7 @@ class Product < ActiveRecord::Base
   validates :price, numericality: { only_integer: true}
 
   has_many :pictures, dependent: :destroy
+  accepts_nested_attributes_for :pictures, allow_destroy: true
+
 
 end

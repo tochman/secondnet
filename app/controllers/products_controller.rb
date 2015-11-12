@@ -9,11 +9,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(product_params)
-    if @product.save == true
-byebug
+    @product = Product.new(product_params)
+    if @product.save
+
       if params[:images]
-        byebug
+
         #===== The magic is here ;)
         params[:images].each { |image|
           @product.pictures.create(image: image)
