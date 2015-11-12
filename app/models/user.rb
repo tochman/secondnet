@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   has_one :store
   has_many :products, through: :store
+
+  scope :store_owners, -> { where(store_owner: true) }
+  scope :customers, -> {where(store_owner: false)}
 end
