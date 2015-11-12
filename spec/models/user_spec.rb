@@ -16,6 +16,6 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it { is_expected.to have_one :store }
-    it { is_expected.to have_many(:products).through :store }
+    it { is_expected.to have_many(:products).through(:store) }
   end
 end
