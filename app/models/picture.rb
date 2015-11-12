@@ -6,4 +6,6 @@ class Picture < ActiveRecord::Base
   validates_with AttachmentSizeValidator, attributes: :image, less_than: 4.megabytes
   validates_attachment_file_name :image, matches: [/gif\Z/, /png\Z/, /jpe?g\Z/]
 
+  belongs_to :product
+
 end
