@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+root to: "products#index"
+
 get 'stores/my_products', controller: :products, action: :get_my_products, as: :my_products
 
 resources :products

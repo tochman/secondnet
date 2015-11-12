@@ -41,7 +41,7 @@ describe 'products' do
       fill_in 'Your selling price in SEK', with: '200'
       click_button 'Add Product'
       expect(page).to have_content 'New item'
-      expect(current_path).to eq '/products'
+      expect(current_path).to eq '/stores/my_products'
     end
 
     scenario 'store owner can\'t add product if productinfo is missing' do
@@ -87,8 +87,6 @@ describe 'products' do
       expect(page).to have_content 'Description can\'t be blank'
       expect(page).to have_content 'Price is not a number'
     end
-
-
   end
 
   context 'deleting products' do

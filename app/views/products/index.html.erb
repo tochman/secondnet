@@ -1,7 +1,23 @@
-<% if @products.any? %>
-  <% @products.each do |product| %>
-    <h2> <%= product.title %> </h2>
-  <% end %>
-<% else %>
-  <h2>There are no products in the system yet.</h2>
-<% end %>
+<main>
+<div class="row">
+<div class="large-8 columns">
+      <% if @products.any? %>
+      <% @products.each do |product| %>
+
+            <% if product.pictures.any? %>
+            <%= image_tag product.pictures.first.image.url(:large) %>
+            <% end %>
+
+            <div class="panel">
+              <h4><%=link_to product.title, product_path(product) %></h4>
+              <p><%= product.description %></p>
+              <h3 class="subheader"><%= product.price %></h3>
+            </div>
+
+          <% end %>
+           </div>
+          </div>
+          <% else %>
+          <h2>There are no products in the system yet.</h2>
+          <% end %>
+    </main>

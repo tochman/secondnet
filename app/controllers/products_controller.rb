@@ -20,10 +20,14 @@ class ProductsController < ApplicationController
         }
       end
 
-      redirect_to products_path
+      redirect_to my_products_path
     else
       render 'new'
     end
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 
   def edit
@@ -35,7 +39,7 @@ class ProductsController < ApplicationController
     @product.update(product_params)
     if @product.save
       flash[:notice] = 'Product was updated successfully!'
-      redirect_to products_path
+      redirect_to my_products_path
     else
       render 'edit'
     end
@@ -45,7 +49,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     flash[:notice] = 'Product was deleted successfully!'
-    redirect_to products_path
+    redirect_to my_products_path
   end
 
   def get_my_products

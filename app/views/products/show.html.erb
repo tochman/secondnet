@@ -1,0 +1,16 @@
+<main>
+<div class="row">
+<div class="large-8 columns">
+<% if @product.pictures.any? %>
+<% @product.pictures.each do |picture| %>
+<%= image_tag picture.image.url(:large) %>
+<% end %>
+<% end %>
+<div class="panel">
+  <h4><%= @product.title %></h4>
+  <p><%= @product.description %></p>
+  <h3 class="subheader"><%= @product.price %></h3>
+</div>
+</div>
+</div>
+</main>
