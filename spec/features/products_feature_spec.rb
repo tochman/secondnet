@@ -33,6 +33,8 @@ describe 'products' do
       visit '/stores'
       click_link 'Add new product'
       fill_in 'What are you selling?', with: 'New item'
+      fill_in 'Describe the product', with: 'Something really nice'
+      fill_in 'Your selling price in SEK', with: '200'
       click_button 'Add Product'
       expect(page).to have_content 'New item'
       expect(current_path).to eq '/products'
