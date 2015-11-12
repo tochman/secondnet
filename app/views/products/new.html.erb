@@ -9,7 +9,7 @@
         <% end %> </small>
       </section>
       <% end %>
-      <%= form_for @product do, html: {multipart: true} |f| %>
+      <%= form_for @product, html: {multipart: true} do |f| %>
       <%= file_field_tag "images[]", type: :file, multiple: true %>
       <%= f.text_field :title, placeholder: 'What are you selling?'%>
       <%= f.text_area :description, placeholder: 'Describe the product' %>

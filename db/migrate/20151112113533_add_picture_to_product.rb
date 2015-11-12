@@ -1,5 +1,0 @@
-class AddPictureToProduct < ActiveRecord::Migration
-  def change
-    add_reference :products, :picture, index: true, foreign_key: true
-  end
-end
