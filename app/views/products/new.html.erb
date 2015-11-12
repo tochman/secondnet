@@ -4,12 +4,9 @@
       <div class="callout panel">
         <% if @product.errors.any? %>
             <section id="errors">
-              <h2> <%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved: </h2>
-              <ul>
-                <% @product.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
+                <small class="error"> <% @product.errors.full_messages.each do |message| %>
+                    <%= message %><br>
+                <% end %> </small>
             </section>
         <% end %>
 
