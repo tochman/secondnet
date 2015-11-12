@@ -13,6 +13,8 @@ Coveralls.wear!
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+  config.include ActionDispatch::TestProcess
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
@@ -38,7 +40,7 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
-    FileUtils.rm_rf(Dir["./public/system/products/images"])
+    FileUtils.rm_rf(Dir["./public/system/pictures/images"])
   end
 
   Shoulda::Matchers.configure do |config|
@@ -48,4 +50,8 @@ RSpec.configure do |config|
     end
   end
 
+end
+
+FactoryGirl::SyntaxRunner.class_eval do
+  include ActionDispatch::TestProcess
 end
