@@ -1,22 +1,21 @@
 <main>
-  <div class="row">
-    <div class="large-8 columns">
-      <div class="callout panel">
-        <% if @product.errors.any? %>
-            <section id="errors">
-                <small class="error"> <% @product.errors.full_messages.each do |message| %>
-                    <%= message %><br>
-                <% end %> </small>
-            </section>
-        <% end %>
-
-        <%= form_for @product do |f| %>
-            <%= f.text_field :title, placeholder: 'What are you selling?'%>
-            <%= f.text_area :description, placeholder: 'Describe the product' %>
-            <%= f.text_field :price, placeholder: 'Your selling price in SEK' %>
-            <%= submit_tag("Add Product", class: 'button small') %>
-        <% end %>
-      </div>
+<div class="row">
+  <div class="large-8 columns">
+    <div class="callout panel">
+      <% if @product.errors.any? %>
+      <section id="errors">
+        <small class="error"> <% @product.errors.full_messages.each do |message| %>
+        <%= message %><br>
+        <% end %> </small>
+      </section>
+      <% end %>
+      <%= form_for @product do |f| %>
+      <%= f.text_field :title, placeholder: 'What are you selling?'%>
+      <%= f.text_area :description, placeholder: 'Describe the product' %>
+      <%= f.text_field :price, placeholder: 'Your selling price in SEK' %>
+      <%= submit_tag("Add Product", class: 'button small') %>
+      <% end %>
     </div>
   </div>
+</div>
 </main>

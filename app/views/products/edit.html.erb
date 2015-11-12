@@ -2,15 +2,12 @@
 <div class="row">
   <div class="large-8 columns">
     <div class="callout panel">
-    <h2>Edit product information</h2>
+      <h2>Edit product information</h2>
       <% if @product.errors.any? %>
       <section id="errors">
-        <h2> <%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved: </h2>
-        <ul>
-          <% @product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
+        <small class="error"> <% @product.errors.full_messages.each do |message| %>
+        <%= message %><br>
+        <% end %> </small>
       </section>
       <% end %>
       <%= form_for @product do |f| %>
