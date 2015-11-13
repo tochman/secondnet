@@ -7,6 +7,5 @@ class Store < ActiveRecord::Base
   private
   def creator_is_store_owner
     errors.add(:user_id, 'You can\t do that') unless self.user.store_owner
-
   end
 end

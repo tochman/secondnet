@@ -7,6 +7,7 @@ require 'capybara/rails'
 require 'factory_girl_rails'
 require 'coveralls'
 require 'shoulda-matchers'
+require 'support/feature_helpers'
 
 Coveralls.wear!
 
@@ -15,6 +16,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include ActionDispatch::TestProcess
+  config.include FeatureHelpers, type: :feature
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
