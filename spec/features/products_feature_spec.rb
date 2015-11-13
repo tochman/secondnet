@@ -7,6 +7,7 @@ describe 'products' do
   context 'no products have been added yet and user visits the page' do
 
     scenario 'it should display a message that there are no products' do
+      login_store_owner
       expect(page).to have_content 'There are no products in the system yet.'
     end
   end
